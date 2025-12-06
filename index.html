@@ -185,7 +185,7 @@
             border-radius: 50%;
         }
         
-        /* Price Section */
+        /* Price Section - ATUALIZADO COM PREÇO REDUZIDO */
         .price-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             text-align: center;
@@ -195,11 +195,29 @@
             margin-bottom: 30px;
         }
         
+        .old-price {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            text-decoration: line-through;
+            margin-bottom: 5px;
+        }
+        
         .price {
             font-size: 3.5rem;
             font-weight: bold;
             color: #fbbf24;
-            margin: 20px 0;
+            margin: 10px 0;
+        }
+        
+        .discount-badge {
+            display: inline-block;
+            background: #dc2626;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            margin: 10px 0;
+            font-size: 1.1rem;
         }
         
         .installments {
@@ -262,6 +280,86 @@
             color: #3b82f6;
         }
         
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            border: 3px solid #3b82f6;
+        }
+        
+        .modal-input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #475569;
+            background: #0f172a;
+            color: white;
+            font-size: 16px;
+        }
+        
+        .modal-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        
+        .modal-textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #475569;
+            background: #0f172a;
+            color: white;
+            font-size: 16px;
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .modal-submit {
+            flex: 1;
+            padding: 15px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .modal-cancel {
+            padding: 15px 25px;
+            background: #475569;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             h1 {
@@ -288,6 +386,10 @@
             
             .bonus-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: 25px 20px;
             }
         }
         
@@ -317,10 +419,10 @@
     <div class="container">
         <!-- Header -->
         <header class="header">
-            <div class="badge">LANÇAMENTO EXCLUSIVO</div>
+            <div class="badge">PROMOÇÃO DE LANÇAMENTO</div>
             <h1>DE ZERO A COPYWRITER COM IA EM 30 MINUTOS/DIA</h1>
             <p class="subtitle">Domine as técnicas que geram vendas com 1/10 do tempo - mesmo sem experiência prévia</p>
-            <div class="counter pulse">⚠️ BÔNUS DISPONÍVEIS POR TEMPO LIMITADO</div>
+            <div class="counter pulse">🎯 PREÇO ESPECIAL POR TEMPO LIMITADO</div>
         </header>
         
         <!-- Video Section -->
@@ -328,7 +430,6 @@
             <h2 style="color: #fbbf24; margin-bottom: 20px;">ASSISTA AO VÍDEO E DESCUBRA O MÉTODO</h2>
             <div class="video-placeholder">
                 <!-- Substitua por embed real do vídeo -->
-                <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/..." frameborder="0" allowfullscreen></iframe> -->
             </div>
             <p style="color: #94a3b8; margin-top: 15px;">Veja como criar sua primeira copy convertível em menos de 30 minutos</p>
         </section>
@@ -380,15 +481,19 @@
             <p style="font-size: 1.2rem;">Teste todo o método por 7 dias. Se não criar sua primeira copy convertível, devolvemos 100% do seu investimento. <strong>Zero risco para você.</strong></p>
         </div>
         
-        <!-- Price Section -->
+        <!-- Price Section - PREÇO REDUZIDO -->
         <section class="price-section">
-            <h2 style="color: #fbbf24; margin-bottom: 10px;">INVESTIMENTO</h2>
-            <p style="color: #cbd5e1;">De <span style="text-decoration: line-through; color: #94a3b8;">R$997</span> por apenas:</p>
-            <div class="price">R$497</div>
-            <p class="installments">ou 12x de R$49,70 no cartão</p>
+            <div class="old-price">De R$497</div>
+            <div class="discount-badge">🔥 PROMOÇÃO DE LANÇAMENTO 🔥</div>
+            <div class="price">R$297</div>
+            <p class="installments">ou 12x de R$29,70 no cartão</p>
             
-            <button class="cta-button pulse" onclick="window.location.href='#comprar'">
-                QUERO COMEÇAR AGORA 🚀
+            <p style="color: #fbbf24; margin: 15px 0; font-size: 1.1rem;">
+                ⏰ Preço válido apenas para as primeiras 20 vagas
+            </p>
+            
+            <button class="cta-button pulse" onclick="openContactModal()">
+                QUERO ME INSCREVER AGORA 🚀
             </button>
             
             <p style="color: #94a3b8; margin-top: 15px; font-size: 0.9rem;">
@@ -400,8 +505,8 @@
         <section class="contact">
             <h3 style="color: #cbd5e1; margin-bottom: 15px;">DÚVIDAS OU PRECISA DE AJUDA?</h3>
             <p style="font-size: 1.1rem; margin-bottom: 10px;">Entre em contato pelo e-mail:</p>
-            <a href="mailto:miguel.martins@pitagoraspaulinia.com.br" class="email-link">
-                miguel.martins@pitagoraspaulinia.com.br
+            <a href="mailto:csousamartins.eng@gmail.com" class="email-link">
+                csousamartins.eng@gmail.com
             </a>
             <p style="color: #94a3b8; margin-top: 15px; font-size: 0.9rem;">
                 Respondemos em até 24 horas úteis
@@ -413,6 +518,32 @@
             <p>© 2024 Copy com IA - Todos os direitos reservados</p>
             <p style="margin-top: 10px;">Este produto não garante resultados financeiros. Resultados variam conforme dedicação e aplicação.</p>
         </footer>
+    </div>
+    
+    <!-- Modal de Contato (SOLUÇÃO 2) -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <h2 style="color: #fbbf24; margin-bottom: 20px; text-align: center;">📧 Solicitar Informações</h2>
+            
+            <form id="contactForm" onsubmit="sendEmail(event)">
+                <input type="text" placeholder="Seu nome completo" required class="modal-input">
+                
+                <input type="email" placeholder="Seu melhor email" required class="modal-input">
+                
+                <input type="tel" placeholder="WhatsApp (com DDD)" class="modal-input">
+                
+                <textarea placeholder="Conte um pouco sobre você e seu interesse pelo curso..." rows="4" class="modal-textarea"></textarea>
+                
+                <div class="modal-buttons">
+                    <button type="submit" class="modal-submit">
+                        ENVIAR SOLICITAÇÃO
+                    </button>
+                    <button type="button" onclick="closeModal()" class="modal-cancel">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <script>
@@ -429,31 +560,95 @@
             
             const counter = document.querySelector('.counter');
             if (counter && hours >= 0) {
-                counter.innerHTML = `⚠️ BÔNUS DISPONÍVEIS POR APENAS: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                counter.innerHTML = `🎯 PREÇO ESPECIAL POR APENAS: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
             }
         }
         
         setInterval(updateCounter, 1000);
         updateCounter();
         
-        // Simulação de compra (substituir por link real da Kiwify)
-        document.querySelector('.cta-button').addEventListener('click', function() {
-            const buySection = document.createElement('div');
-            buySection.id = 'comprar';
-            buySection.innerHTML = `
-                <div style="background: #1e293b; padding: 30px; border-radius: 15px; margin-top: 30px; border: 2px solid #3b82f6; text-align: center;">
-                    <h3 style="color: #fbbf24; margin-bottom: 20px;">REDIRECIONANDO PARA PAGAMENTO SEGURO...</h3>
-                    <p style="margin-bottom: 20px;">Em instantes você será direcionado para a página de pagamento da Kiwify.</p>
-                    <div style="height: 4px; background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6); border-radius: 2px; margin: 20px 0;"></div>
-                    <p style="color: #94a3b8; font-size: 0.9rem;">Se o redirecionamento não funcionar automaticamente, <a href="https://kiwify.com.br" style="color: #60a5fa;">clique aqui</a></p>
-                </div>
-            `;
-            this.parentNode.appendChild(buySection);
+        // Funções do Modal (SOLUÇÃO 2)
+        function openContactModal() {
+            document.getElementById('contactModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            document.getElementById('contactModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
             
-            // Em produção, substituir por: window.location.href = 'https://kiwify.com.br/seu-link';
+            // Reset form
+            document.getElementById('contactForm').reset();
+        }
+        
+        // Fechar modal ao clicar fora
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Função para enviar email via formulário
+        function sendEmail(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('contactForm');
+            const inputs = form.querySelectorAll('.modal-input, .modal-textarea');
+            
+            const name = inputs[0].value;
+            const email = inputs[1].value;
+            const phone = inputs[2].value;
+            const message = inputs[3].value;
+            
+            // Validar email
+            if (!email.includes('@') || !email.includes('.')) {
+                alert('Por favor, insira um email válido.');
+                return;
+            }
+            
+            const subject = "NOVO INTERESSE: Curso Copy com IA - R$297";
+            const body = `🎯 NOVO LEAD INTERESSADO NO CURSO!\n\n` +
+                         `📝 Nome: ${name}\n` +
+                         `📧 Email: ${email}\n` +
+                         `📱 WhatsApp: ${phone || 'Não informado'}\n` +
+                         `💬 Mensagem: ${message || 'Sem mensagem adicional'}\n\n` +
+                         `💰 Interessado no preço promocional: R$297\n` +
+                         `📅 Recebido em: ${new Date().toLocaleString('pt-BR')}\n\n` +
+                         `👉 ENTRAR EM CONTATO O MAIS RÁPIDO POSSÍVEL!`;
+            
+            // Abre cliente de email
+            window.location.href = `mailto:csousamartins.eng@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Feedback para o usuário
             setTimeout(() => {
-                alert('Em um site real, você seria redirecionado para a Kiwify. Link de exemplo: https://kiwify.com.br/copy-com-ia');
+                alert("✅ Solicitação enviada com sucesso!\n\n📧 Seu cliente de email abriu automaticamente. Por favor, revise e envie para: csousamartins.eng@gmail.com\n\n📞 Você receberá uma resposta em até 24 horas úteis.");
+            }, 300);
+            
+            // Fecha modal
+            closeModal();
+            
+            // Atualiza botão principal
+            const mainButton = document.querySelector('.cta-button');
+            mainButton.innerHTML = "✅ SOLICITAÇÃO ENVIADA!";
+            mainButton.style.background = "linear-gradient(135deg, #10b981, #059669)";
+            mainButton.classList.remove('pulse');
+            mainButton.onclick = null;
+            
+            // Contador de vagas restantes (simulação)
+            setTimeout(() => {
+                const counter = document.querySelector('.counter');
+                if (counter) {
+                    counter.innerHTML = "🎯 ULTIMAS VAGAS DISPONÍVEIS!";
+                    counter.style.background = "#dc2626";
+                }
             }, 1000);
+        }
+        
+        // Fechar modal com ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
         });
     </script>
 </body>
