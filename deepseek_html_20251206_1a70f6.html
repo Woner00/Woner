@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy com IA: 27 Prompts que Convertem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .badge {
+            display: inline-block;
+            background-color: #fbbf24;
+            color: #78350f;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto 25px;
+        }
+        
+        /* Video Section */
+        .video-container {
+            background: #1e293b;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            border: 2px solid #334155;
+        }
+        
+        .video-placeholder {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-placeholder::before {
+            content: "▶";
+            font-size: 80px;
+            color: white;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        /* Content Sections */
+        .section {
+            background: #1e293b;
+            border-radius: 15px;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-left: 5px solid #3b82f6;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #60a5fa;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title::before {
+            content: "•";
+            color: #fbbf24;
+            font-size: 2.5rem;
+        }
+        
+        .highlight {
+            background: #172554;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid #3b82f6;
+        }
+        
+        .bullet-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .bullet-list li {
+            padding: 15px 0 15px 40px;
+            position: relative;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .bullet-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .bullet-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 15px;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2rem;
+            background: #064e3b;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Bonus Section */
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .bonus-card {
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #3b82f6;
+            position: relative;
+        }
+        
+        .bonus-card::after {
+            content: "⭐";
+            position: absolute;
+            top: -15px;
+            right: 15px;
+            font-size: 24px;
+            background: #0f172a;
+            padding: 5px;
+            border-radius: 50%;
+        }
+        
+        /* Price Section */
+        .price-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            border: 3px solid #f59e0b;
+            margin-bottom: 30px;
+        }
+        
+        .price {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #fbbf24;
+            margin: 20px 0;
+        }
+        
+        .installments {
+            color: #cbd5e1;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 22px 50px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.4);
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+        }
+        
+        /* Guarantee */
+        .guarantee {
+            background: #064e3b;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #10b981;
+            text-align: center;
+        }
+        
+        /* Contact */
+        .contact {
+            text-align: center;
+            padding: 30px;
+            background: #1e293b;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        
+        .email-link {
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .email-link:hover {
+            text-decoration: underline;
+            color: #3b82f6;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 25px 20px;
+            }
+            
+            .price {
+                font-size: 2.8rem;
+            }
+            
+            .cta-button {
+                padding: 18px 30px;
+                font-size: 1.2rem;
+                width: 100%;
+            }
+            
+            .bonus-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .counter {
+            background: #dc2626;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="badge">LANÇAMENTO EXCLUSIVO</div>
+            <h1>DE ZERO A COPYWRITER COM IA EM 30 MINUTOS/DIA</h1>
+            <p class="subtitle">Domine as técnicas que geram vendas com 1/10 do tempo - mesmo sem experiência prévia</p>
+            <div class="counter pulse">⚠️ BÔNUS DISPONÍVEIS POR TEMPO LIMITADO</div>
+        </header>
+        
+        <!-- Video Section -->
+        <section class="video-container">
+            <h2 style="color: #fbbf24; margin-bottom: 20px;">ASSISTA AO VÍDEO E DESCUBRA O MÉTODO</h2>
+            <div class="video-placeholder">
+                <!-- Substitua por embed real do vídeo -->
+                <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/..." frameborder="0" allowfullscreen></iframe> -->
+            </div>
+            <p style="color: #94a3b8; margin-top: 15px;">Veja como criar sua primeira copy convertível em menos de 30 minutos</p>
+        </section>
+        
+        <!-- Problem Section -->
+        <section class="section">
+            <h2 class="section-title">ENQUANTO A MAIORIA USA CHATGPT PARA PERGUNTAS BÁSICAS...</h2>
+            <div class="highlight">
+                <p style="font-size: 1.3rem; font-weight: bold; color: #fbbf24;">Uma minoria aplica prompts secretos que criam copies <span style="color: #10b981;">47% mais convertíveis</span>.</p>
+            </div>
+            <p style="font-size: 1.2rem; margin: 20px 0;"><strong>ELES NÃO SÃO MAIS INTELIGENTES.</strong></p>
+            <p style="font-size: 1.1rem;">Só conhecem as sequências exatas de palavras que transformam IA em máquina de vendas 24h.</p>
+        </section>
+        
+        <!-- Method Section -->
+        <section class="section">
+            <h2 class="section-title">MÉTODO "COPY COM IA"</h2>
+            <ul class="bullet-list">
+                <li><strong>27 prompts pré-formatados</strong> para criar QUALQUER peça em minutos</li>
+                <li><strong>9 fórmulas de conversão</strong> adaptadas especificamente para IA</li>
+                <li><strong>Sistema passo a passo</strong> de apenas 30 minutos por dia</li>
+                <li><strong>Templates editáveis</strong> prontos (landing pages, emails, anúncios)</li>
+                <li><strong>Acesso vitalício</strong> e atualizações gratuitas</li>
+            </ul>
+        </section>
+        
+        <!-- Bonus Section -->
+        <section class="section">
+            <h2 class="section-title">BÔNUS IMEDIATOS (LIMITADOS)</h2>
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <h3 style="color: #fbbf24; margin-bottom: 15px;">🎁 BÔNUS #1</h3>
+                    <p><strong>Biblioteca com 50+ exemplos reais</strong> que vendem no mercado atual</p>
+                </div>
+                <div class="bonus-card">
+                    <h3 style="color: #fbbf24; margin-bottom: 15px;">🔍 BÔNUS #2</h3>
+                    <p><strong>Checklist "Antes de Publicar"</strong> - evite os 7 erros mais comuns</p>
+                </div>
+                <div class="bonus-card">
+                    <h3 style="color: #fbbf24; margin-bottom: 15px;">👥 BÔNUS #3</h3>
+                    <p><strong>Acesso à comunidade exclusiva</strong> no Telegram com suporte direto</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Guarantee -->
+        <div class="guarantee">
+            <h2 style="color: #10b981; margin-bottom: 15px;">✅ GARANTIA INCONDICIONAL DE 7 DIAS</h2>
+            <p style="font-size: 1.2rem;">Teste todo o método por 7 dias. Se não criar sua primeira copy convertível, devolvemos 100% do seu investimento. <strong>Zero risco para você.</strong></p>
+        </div>
+        
+        <!-- Price Section -->
+        <section class="price-section">
+            <h2 style="color: #fbbf24; margin-bottom: 10px;">INVESTIMENTO</h2>
+            <p style="color: #cbd5e1;">De <span style="text-decoration: line-through; color: #94a3b8;">R$997</span> por apenas:</p>
+            <div class="price">R$497</div>
+            <p class="installments">ou 12x de R$49,70 no cartão</p>
+            
+            <button class="cta-button pulse" onclick="window.location.href='#comprar'">
+                QUERO COMEÇAR AGORA 🚀
+            </button>
+            
+            <p style="color: #94a3b8; margin-top: 15px; font-size: 0.9rem;">
+                ✅ Pagamento 100% seguro | ✅ Acesso imediato | ✅ 7 dias de garantia
+            </p>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="contact">
+            <h3 style="color: #cbd5e1; margin-bottom: 15px;">DÚVIDAS OU PRECISA DE AJUDA?</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 10px;">Entre em contato pelo e-mail:</p>
+            <a href="mailto:miguel.martins@pitagoraspaulinia.com.br" class="email-link">
+                miguel.martins@pitagoraspaulinia.com.br
+            </a>
+            <p style="color: #94a3b8; margin-top: 15px; font-size: 0.9rem;">
+                Respondemos em até 24 horas úteis
+            </p>
+        </section>
+        
+        <!-- Footer -->
+        <footer style="text-align: center; padding: 30px 0; color: #64748b; font-size: 0.9rem; border-top: 1px solid #334155; margin-top: 30px;">
+            <p>© 2024 Copy com IA - Todos os direitos reservados</p>
+            <p style="margin-top: 10px;">Este produto não garante resultados financeiros. Resultados variam conforme dedicação e aplicação.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Contador de tempo para urgência
+        function updateCounter() {
+            const now = new Date();
+            const endOfDay = new Date();
+            endOfDay.setHours(23, 59, 59, 999);
+            
+            const diff = endOfDay - now;
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            const counter = document.querySelector('.counter');
+            if (counter && hours >= 0) {
+                counter.innerHTML = `⚠️ BÔNUS DISPONÍVEIS POR APENAS: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+        }
+        
+        setInterval(updateCounter, 1000);
+        updateCounter();
+        
+        // Simulação de compra (substituir por link real da Kiwify)
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            const buySection = document.createElement('div');
+            buySection.id = 'comprar';
+            buySection.innerHTML = `
+                <div style="background: #1e293b; padding: 30px; border-radius: 15px; margin-top: 30px; border: 2px solid #3b82f6; text-align: center;">
+                    <h3 style="color: #fbbf24; margin-bottom: 20px;">REDIRECIONANDO PARA PAGAMENTO SEGURO...</h3>
+                    <p style="margin-bottom: 20px;">Em instantes você será direcionado para a página de pagamento da Kiwify.</p>
+                    <div style="height: 4px; background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6); border-radius: 2px; margin: 20px 0;"></div>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Se o redirecionamento não funcionar automaticamente, <a href="https://kiwify.com.br" style="color: #60a5fa;">clique aqui</a></p>
+                </div>
+            `;
+            this.parentNode.appendChild(buySection);
+            
+            // Em produção, substituir por: window.location.href = 'https://kiwify.com.br/seu-link';
+            setTimeout(() => {
+                alert('Em um site real, você seria redirecionado para a Kiwify. Link de exemplo: https://kiwify.com.br/copy-com-ia');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
